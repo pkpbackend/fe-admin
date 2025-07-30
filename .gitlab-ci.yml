@@ -1,0 +1,22 @@
+stages:
+  - build
+
+cache:
+  paths:
+    - node_modules/
+
+build-staging:
+  image: docker:20.10.8
+  stage: build
+  variables:
+    REACT_APP_NODE_ENV: STAGING
+    API_HOST=: https://api-sibaruv3.ujiaplikasi.com
+    REACT_APP_REVALIDATE_TOKEN: aR7bFpQc
+  before_script:
+    - docker login ${CI_REGISTRY} -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
+  script:
+    - docker build --build-arg REACT_APP_NODE_ENV="${REACT_APP_NODE_ENV}" --build-arg API_HOST="${API_HOST}" --build-arg REACT_APP_REVALIDATE_TOKEN="${REACT_APP_REVALIDATE_TOKEN}" -t ${CI_REGISTRY}/${CI_PROJECT_PATH}/staging:latest .
+    - docker push ${CI_REGISTRY}/${CI_PROJECT_PATH}/staging:latest
+  only:
+    - /^staging_[0-9]+(?:.[0-9]+)+$/
+

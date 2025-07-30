@@ -1,0 +1,63 @@
+@import "src/@core/scss/base/bootstrap-extended/_variables.scss";
+
+.ticket-title {
+  color: $primary;
+  margin-bottom: 1.5rem;
+  h3 {
+    line-height: 2rem;
+    color: inherit;
+  }
+}
+.chat-wrapper {
+  margin-bottom: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.chat-item {
+  background-color: $gray-200;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.chat-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 1.25rem;
+}
+
+.chat-username {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+  color: $headings-color;
+}
+
+.chat-date {
+  font-size: 12px;
+  color: #80848d;
+  white-space: nowrap;
+}
+.chat-body {
+  font-size: 16px;
+  color: #80848d;
+}
+
+.descriptions {
+  .description-item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    .description-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .description-content {
+      font-weight: 400;
+    }
+  }
+}

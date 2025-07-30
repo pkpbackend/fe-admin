@@ -1,0 +1,112 @@
+@import "../../../bootstrap-extended/include"; // Bootstrap includes
+
+.flatpickr-calendar {
+  .flatpickr-day {
+    color: $body-color;
+    &.today {
+      border-color: hsl(var(--bs-primary));
+      &:hover {
+        background: transparent;
+        color: $body-color;
+      }
+    }
+
+    &.selected,
+    &.selected:hover {
+      background: hsl(var(--bs-primary));
+      color: $white;
+      border-color: hsl(var(--bs-primary));
+    }
+
+    &.inRange,
+    &.inRange:hover {
+      background: lighten($color: $primary, $amount: 30%);
+      border-color: lighten($color: $primary, $amount: 30%);
+      box-shadow: -5px 0 0 lighten($color: $primary, $amount: 30%),
+        5px 0 0 lighten($color: $primary, $amount: 30%);
+    }
+    &.startRange,
+    &.endRange,
+    &.startRange:hover,
+    &.endRange:hover {
+      background: hsl(var(--bs-primary));
+      color: $white;
+      border-color: hsl(var(--bs-primary));
+    }
+
+    &.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+      box-shadow: -10px 0 0 hsl(var(--bs-primary));
+    }
+
+    &.flatpickr-disabled,
+    &.prevMonthDay,
+    &.nextMonthDay {
+      color: $gray-300;
+    }
+
+    &:hover {
+      background: $gray-50;
+    }
+  }
+  &:after,
+  &:before {
+    display: none;
+  }
+
+  .flatpickr-months {
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
+      top: -5px;
+      &:hover i,
+      &:hover svg {
+        fill: hsl(var(--bs-primary));
+      }
+    }
+  }
+  .flatpickr-current-month span.cur-month {
+    font-weight: 300;
+  }
+}
+.flatpickr-time {
+  height: $input-height;
+}
+
+// Time picker hover & focus bg color
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+  background: $white;
+}
+
+// ? Added bg color for flatpickr input only as it has default readonly attribute
+.flatpickr-input[readonly],
+.flatpickr-input ~ .form-control[readonly],
+.flatpickr-human-friendly[readonly] {
+  background-color: inherit;
+  opacity: 1 !important;
+}
+
+.flatpickr-weekdays {
+  margin-top: 8px;
+}
+
+.flatpickr-current-month {
+  .flatpickr-monthDropdown-months {
+    -webkit-appearance: none;
+  }
+
+  .flatpickr-monthDropdown-months,
+  .numInputWrapper {
+    font-size: 1.1rem;
+    border-radius: 4px;
+    padding: 2px;
+    transition: all 0.15s ease-out;
+
+    span {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+* {
+  font-family: "Quicksand";
+}
+.get-notif {
+  animation-iteration-count: infinite;
+  animation-name: twinkle-1;
+  animation-duration: 1s;
+}
+
+@keyframes twinkle-1 {
+  50% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--bs-primary));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--bs-primary));
+}
+
+.span-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  left: 35%;
+  top: -7px;
+  font-size: 12px;
+  padding: 0.2rem 0.5rem;
+}
+
+.select__multi-value .select__multi-value__remove,
+[dir="ltr"] .react-select__multi-value .select__multi-value__remove {
+  color: hsl(0, 0%, 20%) !important;
+}
+
+.select__multi-value .select__multi-value__label,
+.react-select__multi-value .select__multi-value__label {
+  color: hsl(0, 0%, 20%) !important;
+}

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-admin
+  labels:
+    name: fe-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: fe-admin
+  template:
+    metadata:
+      labels:
+        name: fe-admin
+    spec:
+      imagePullSecrets:
+        - name: 'regcred'
+      containers:
+        - name: fe-admin
+          image: '${CI_REGISTRY}/${CI_PROJECT_PATH}/staging:latest'
+          ports:
+            - containerPort: 80

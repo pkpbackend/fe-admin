@@ -1,0 +1,56 @@
+@import "../../../bootstrap-extended/include"; // Bootstrap includes
+
+// remove picker outline
+.picker__holder {
+  outline: none;
+}
+// Updated picker  color as per theme color
+.picker__day--today:before,
+.picker__button--today:before {
+  border-top: 6px solid $primary;
+}
+.picker__button--clear:before {
+  border-top: 2px solid $danger;
+}
+.picker__day--highlighted,
+.picker__day--highlighted:hover,
+.picker--focused .picker__day--highlighted,
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__list-item--selected {
+  background-color: $primary;
+}
+// Updated picker svg icons
+.picker__nav--prev:before,
+.picker__nav--next:before,
+.picker__button--close:before {
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  color: $body-color;
+  width: 8px;
+  height: 18px;
+}
+.picker__nav--prev:before {
+  background-image: url(str-replace(
+    str-replace($chevron-left, "currentColor", $body-color),
+    "#",
+    "%23"
+  ));
+}
+.picker__nav--next:before {
+  background-image: url(str-replace(
+    str-replace($chevron-right, "currentColor", $body-color),
+    "#",
+    "%23"
+  ));
+}
+.picker__button--close:before {
+  background-image: url(str-replace(
+    str-replace($remove, "currentColor", $danger),
+    "#",
+    "%23"
+  ));
+  height: 10px !important;
+}

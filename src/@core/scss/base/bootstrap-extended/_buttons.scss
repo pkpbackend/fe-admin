@@ -1,0 +1,115 @@
+// var for box shadow of gradient buttons
+// Buttons
+@use "sass:color";
+
+.btn {
+  box-shadow: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  // gradient button on hover transition
+  &[class*="bg-gradient-"] {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  // Icon button padding
+  &.btn-icon {
+    padding: 0.715rem 0.736rem;
+  }
+  &.btn-sm {
+    &.btn-icon {
+      padding: 0.5rem;
+      line-height: 0.5;
+    }
+  }
+  &.btn-lg {
+    &.btn-icon {
+      padding: 1rem;
+      line-height: 0.75;
+    }
+  }
+
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:not(:disabled):not(.disabled):active:focus,
+  &:not(:disabled):not(.disabled).active:focus {
+    box-shadow: none !important;
+  }
+
+  // feather icons inside btn
+  .feather {
+    vertical-align: bottom;
+  }
+}
+.btn-check {
+  &:checked,
+  &:active {
+    + [class*="btn-"] {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+// For Waves Input Padding
+.btn.waves-input-wrapper {
+  padding: 0;
+}
+
+.btn-pinned {
+  position: absolute;
+  top: 1.2rem;
+  right: 0.7rem;
+}
+
+@include media-breakpoint-down(md) {
+  .btn-sm-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Remove cursor-pointer from button if button is disabled
+// * setting it to inherit will auto adept cursor
+.waves-effect {
+  cursor: inherit;
+}
+
+.btn-primary {
+  --bs-btn-color: white;
+  --bs-btn-bg: hsl(var(--bs-primary));
+  --bs-btn-hover-bg: hsl(var(--bs-primary) / 0.9);
+  --bs-btn-active-bg: hsl(var(--bs-primary) / 0.8);
+  --bs-btn-active-border-color: hsl(var(--bs-primary));
+  --bs-btn-border-width: #{$btn-border-width};
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-border-color: transparent;
+
+  --bs-btn-disabled-bg: hsl(var(--bs-primary) / 0.6);
+  --bs-btn-disabled-border-color: transparent;
+}
+.btn-outline-primary {
+  --bs-btn-color: hsl(var(--bs-primary));
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-bg: hsl(var(--bs-primary) / 0.1);
+  --bs-btn-hover-color: hsl(var(--bs-primary));
+  --bs-btn-active-bg: hsl(var(--bs-primary) / 0.8);
+  --bs-btn-active-border-color: hsl(var(--bs-primary));
+  --bs-btn-border-width: #{$btn-border-width};
+  --bs-btn-border-color: hsl(var(--bs-primary));
+  --bs-btn-hover-border-color: hsl(var(--bs-primary));
+
+  --bs-btn-disabled-bg: hsl(var(--bs-primary) / 0.6);
+  --bs-btn-disabled-border-color: transparent;
+}
